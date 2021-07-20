@@ -2,8 +2,8 @@
 #Определяем переменные
 ######################################################
 
-@humans = 10000
-@machines = 10000
+@humans = 100
+@machines = 100
 
 #####################################################
 #Вспомогательные методы
@@ -18,11 +18,21 @@ end
 def boom
     diff = rand(1..5)
     if luck?
+        if diff > @machines
+            @machines -= @machines
+
+            else
         @machines -= diff
         puts "#{diff} машин уничтожено"
+        end
     else
+        if diff > @humans
+            @humans -= @humans
+    
+            else
         @humans -= diff
         puts "#{diff} людей погибло"
+        end
     end
 end
 
@@ -78,7 +88,13 @@ end
 ####################################################
 
 def check_victory?
-    false
+    if @machines < 1
+        puts "Люди победили"
+        exit
+    elsif @humans < 1
+        puts "Машины победили"
+        exit
+    end
 end
 
 ###################################################
