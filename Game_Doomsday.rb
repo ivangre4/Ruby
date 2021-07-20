@@ -40,6 +40,24 @@ end
 
 def random_city
     dice = rand(1..5)
+
+    case dice
+        when 1
+            "Москва"
+        when 2
+            "Лос-Анджелес"
+        when 3
+            "Пекин"
+        when 4
+            "Лондон"
+        when
+            "Сеул"
+    end
+
+
+
+
+=begin
     if dice == 1
         "Москва"
     elsif dice == 2
@@ -51,6 +69,7 @@ def random_city
     elsif dice == 5
         "Сеул"
     end
+=end
 end
 
 def random_sleep
@@ -104,18 +123,19 @@ end
 loop do
     if check_victory?
         exit
-end
+    end
 
-dice = rand(1..3)
+    dice = rand(1..3)
+    case dice
+        when 1
+            event1
+            when 2
+                event2
+                when 3
+                    event3
+    end
 
-if dice == 1
-    event1
-    elsif dice == 2
-        event2
-        elsif dice == 3
-            event3
-        end
 
         stats
         random_sleep
-    end
+end
