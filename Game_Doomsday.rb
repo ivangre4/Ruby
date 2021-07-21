@@ -2,8 +2,8 @@
 #Определяем переменные
 ######################################################
 
-@humans = 100
-@machines = 100
+@humans = 1000
+@machines = 1000
 
 #####################################################
 #Вспомогательные методы
@@ -16,7 +16,7 @@ def luck?
 end
 
 def boom
-    diff = rand(1..5)
+    diff = rand(1..50)
     if luck?
         if diff > @machines
             @machines -= @machines
@@ -24,6 +24,9 @@ def boom
             else
         @machines -= diff
         puts "#{diff} машин уничтожено"
+        revive = rand(0..diff)
+        @machines += revive
+        puts "#{revive} машин создано"
         end
     else
         if diff > @humans
@@ -32,6 +35,9 @@ def boom
             else
         @humans -= diff
         puts "#{diff} людей погибло"
+        revive = rand(0..diff)
+        @machines += revive
+        puts "#{revive} людей появилось"
         end
     end
 end
@@ -102,6 +108,24 @@ def event3
     boom
 end
 
+def event4
+    puts "Танковое сражение в городе #{random_city}"
+    random_sleep
+    boom
+end
+
+def event5
+    puts "Применено гиперзвуковое оружие в городе #{random_city}"
+    random_sleep
+    boom
+end
+
+def event6
+    puts "Ядерный удар в городе #{random_city}"
+    random_sleep
+    boom        
+end
+
 ####################################################
 #Проверка победы
 ####################################################
@@ -125,7 +149,7 @@ loop do
         exit
     end
 
-    dice = rand(1..3)
+    dice = rand(1..6)
     case dice
         when 1
             event1
@@ -133,9 +157,14 @@ loop do
                 event2
                 when 3
                     event3
+                    when 4
+                        event4
+                        when 5
+                            event5
+                            when 6
+                                event6
     end
 
-
-        stats
-        random_sleep
+    stats
+    random_sleep
 end
