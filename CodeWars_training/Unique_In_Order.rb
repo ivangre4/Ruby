@@ -10,23 +10,35 @@ unique_in_order([1,2,2,3,3])       == [1,2,3]
 
 def unique_in_order(iterable)
     #your code here
+        y = ""
+        result = []
+    if iterable.kind_of?(Array)
 
-iterable = iterable.chars
-length = iterable.length
-for i in (0..length) 
-    if iterable[i+1] == iterable[i]
-        iterable.delete_at[i]
+
+
+        iterable.each do |x|
+
+            if x != y
+                result << x
+            end
+
+            y = x
+
+        end
+        else
+        array = iterable.chars
+        
+        array.each do |x|
+
+            if x != y
+                result << x
+            end
+
+            y = x
+
+        end
     end
-end
-
-
-
-
-print iterable
-
-    #print iterable.chars.
-
-
+print result
 end
 
 unique_in_order('AAAABBBCCDAABBB')
