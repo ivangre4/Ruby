@@ -6,8 +6,13 @@ Example:"The greatest victory is that which requires no battle" --> "battle no r
 
 def solution(sentence)
     result = ""
-   
-    print arr
+    arr = sentence.split(/ /).reverse
+    arr[0...-1].each do |x|
+        result += x + " "
+    end
+    result = result + arr[-1]
+    return result
+    
     
   
 
@@ -15,3 +20,13 @@ end
 
 
 solution("The greatest victory is that which requires no battle")
+
+
+=begin
+ЛУЧШЕЕ РЕШЕНИЕ
+
+def solution(sentence)
+  sentence.split.reverse.join(" ")
+end
+
+=end
