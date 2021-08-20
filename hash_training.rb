@@ -136,6 +136,7 @@ print result
 
 
 #####################################################
+=begin
 str = "the quick brown fox jumps over the lazy dog"
 arr = str.split(' ')
 hh = Hash.new(0)
@@ -148,3 +149,90 @@ arr.each do |element|
 end
 
 puts hh.inspect
+=end
+
+
+###################################################
+=begin
+def total_weight(options={})
+    a = options[:soccer_ball_count] || 0
+    b = options[:tennis_ball_count] || 0
+    c = options[:golf_ball_count] || 0
+    total = (a * 410) + (b * 58) + (c * 45) + 29
+    puts a
+    puts b
+    puts c
+    puts total
+
+
+end
+
+x = total_weight#(soccer_ball_count: 3, tennis_ball_count: 2, golf_ball_count: 1)
+
+=end
+
+
+###################################################
+=begin
+def launch(options={})
+    a = options[:angle] || 90
+    b = options[:astronauts] || [:belka, :strelka]
+    c = options[:delay] || 5
+
+    delay = c
+    loop do
+        puts delay
+        delay -= 1
+        sleep 1
+        break if delay < 0
+        
+    end
+
+    puts "Запущены астронавты: #{b}"
+    puts "Ракета запущена под углом #{a} градусов"
+    
+
+
+end
+
+launch(angle: 90, delay: 5, astronauts: :belka)
+=end
+
+##################################################
+=begin
+require "set"
+
+def f(str)
+    set = Set.new
+
+    str.each_char do |c|
+        if c >= "a" && c <= "z"
+            set.add(c)
+        end
+        break if set.size == 26
+    end
+    set.size == 26
+end
+
+puts f("quick brown fox jumps over the lazy dog")
+=end
+
+##################################################
+=begin
+data = {
+    soccer_ball: {name: 'Football ball', weight: 410, qty: 5},
+    tennis_ball: {name: 'Tennis ball', weight: 58, qty: 10},
+    golf_ball: {name: 'Golf ball', weight: 45, qty: 15}
+}
+
+def stock(data)
+    puts 'На складе есть:'
+    data.each do |_, v|
+            puts "#{v[:name]}, weight #{v[:weight]} g, quantity: #{v[:qty]}."
+        
+    end
+end
+stock(data)
+=end
+
+#####################################################
