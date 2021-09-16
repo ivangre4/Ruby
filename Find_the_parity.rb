@@ -21,9 +21,9 @@ def find_outlier(integers)
             end
         end
             if arr1.size < arr2.size
-                return arr1[0]
+                print arr1[0]
             else
-                return arr2[0]
+                print arr2[0]
             end
 end
 
