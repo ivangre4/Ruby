@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    set_user
+    @articles = @user.articles
   end
 
   def new
